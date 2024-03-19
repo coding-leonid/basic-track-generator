@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import sys
 
-import settings as settings
+import settings
 import track_generator as tg
 import callback as cb
 
@@ -55,12 +55,12 @@ if __name__ == '__main__':
     try:
         assert mode == 'click' or mode == 'list'
     except AssertionError:
-        print('Please enter valid argument \'click\' or \'list\'')
+        print("Please enter valid argument 'click' or 'list'")
         exit()
 
     # Set up plot
-    plt.xlim([-100, 100])
-    plt.ylim([-100, 100])
+    plt.xlim(settings.X_RANGE)
+    plt.ylim(settings.Y_RANGE)
 
     # Keys that are always active
     settings.D_KEY = settings.FIG.canvas.mpl_connect(

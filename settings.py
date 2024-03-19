@@ -6,14 +6,22 @@ def init():
     global TRACK_POINTS, TRACK_WIDTH, CLICKED_POINTS, NUM_TRACK_POINTS, \
         TRACK_GENERATED, TRACK_STEP, NUM_LINE_POINTS, CENTER_LINE_PLOT, \
         TRACK_POINT_PLOTS, ANNOTATIONS, FIG, MOUSE, T_KEY, H_KEY, X_KEY, \
-        D_KEY, ORANGE_CONES, BLUE_CONES, YELLOW_CONES, TRACK_SAVED
+        D_KEY, ORANGE_CONES, BLUE_CONES, YELLOW_CONES, TRACK_SAVED, X_RANGE, \
+        Y_RANGE
+
+    ### Tunable track generation parameters ###
+    # Number of points on the centerline
+    NUM_LINE_POINTS = 1000
+    # Width of the track
+    TRACK_WIDTH = 3.
+    # The canvas x- and y-value ranges
+    X_RANGE = [-100., 100.]
+    Y_RANGE = [-100., 100.]
 
     FIG = plt.figure('FEB Track generator')
     TRACK_GENERATED = False
     NUM_TRACK_POINTS = 0
-    NUM_LINE_POINTS = 1000
     TRACK_STEP = NUM_LINE_POINTS // 100
-    TRACK_WIDTH = 3.
     CLICKED_POINTS = []
     CENTER_LINE_PLOT = None
     TRACK_POINT_PLOTS = []
@@ -22,6 +30,7 @@ def init():
     ORANGE_CONES, BLUE_CONES, YELLOW_CONES = np.array, np.array, np.array
     TRACK_SAVED = False
 
+    # This list is used to generate the track in 'list mode'
     TRACK_POINTS = np.array([
         [0., 0.],
         [50., 0.],
@@ -31,6 +40,8 @@ def init():
         [-50., -50.],
         [-50., 0.]
     ])
+
+    # A more involved example:
 
     # TRACK_POINTS = np.array([
     #     [6.55525,  3.05472],
