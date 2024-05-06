@@ -24,7 +24,7 @@ The modes differ in how the track is generated, but the result is the same. When
 
 In click mode, the user clicks on the canvas to add waypoints for the track. By waypoints, we mean points that lie on the centerline of the track. If the user wishes to remove the latest waypoint, they can press `x`. When the desired number of waypoints have been added, the user can click `t` to generate the track.
 
-The user can save the track, i.e. the coordinates of the cones and their color into a `.csv` file by pressing `d` when the track has been generated. The file is saved in the `generated_files` folder as `track_XXX.csv` with the smalles unused three-digit number for `XXX`.
+The user can save the track, i.e. the coordinates of the cones and their color into a `.csv` file by pressing `d` when the track has been generated. The file is saved in the `generated_files` folder as `track_XXX.csv` with the smallest unused three-digit number for `XXX`.
 
 ### List Mode
 
