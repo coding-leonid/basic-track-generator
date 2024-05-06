@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import csv
 import time
+import os
 
 import settings
 import track_generator as tg
@@ -120,8 +121,20 @@ def on_d_press(event):
     yellow_with_field = np.hstack([settings.YELLOW_CONES, yellow_text])
     orange_with_field = np.hstack([settings.ORANGE_CONES, orange_text])
 
+    # Check if save directory exists
+    if not os.path.exists('./generated_files'):
+        # If not, create the folder
+        os.mkdir('./generated_files')
+        print("Created directory 'generated_files'")
+    
+    # Check which file name to use
+    current_track_index = 0
+    while os.path.exists('./generated_files/track_{0:03d}.csv'.format(current_track_index)):
+        current_track_index += 1
+    track_file_name = 'track_{0:03d}.csv'.format(current_track_index)
+
     # Write .csv file
-    with open(f'./generated_files/track.csv', 'w', newline='') as file:
+    with open(f'./generated_files/{track_file_name}', 'w', newline='') as file:
         writer = csv.writer(file, delimiter=',')
         writer.writerow(['x', 'y', 'color'])
         writer.writerows(orange_with_field)
