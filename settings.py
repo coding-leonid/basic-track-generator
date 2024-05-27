@@ -15,8 +15,8 @@ def init():
     # Width of the track
     TRACK_WIDTH = 3.
     # The canvas x- and y-value ranges
-    X_RANGE = [-100., 100.]
-    Y_RANGE = [-100., 100.]
+    X_RANGE = [-30., 30.]
+    Y_RANGE = [-30., 30.]
 
     FIG = plt.figure('FEB Track generator')
     TRACK_GENERATED = False
