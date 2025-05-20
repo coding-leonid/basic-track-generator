@@ -3,22 +3,18 @@ import matplotlib.pyplot as plt
 
 
 def init():
-    global TRACK_POINTS, TRACK_WIDTH, CLICKED_POINTS, NUM_TRACK_POINTS, \
-        TRACK_GENERATED, TRACK_STEP, NUM_LINE_POINTS, CENTER_LINE_PLOT, \
-        TRACK_POINT_PLOTS, ANNOTATIONS, FIG, MOUSE, T_KEY, H_KEY, X_KEY, \
-        D_KEY, ORANGE_CONES, BLUE_CONES, YELLOW_CONES, TRACK_SAVED, X_RANGE, \
-        Y_RANGE
+    global TRACK_POINTS, TRACK_WIDTH, CLICKED_POINTS, NUM_TRACK_POINTS, TRACK_GENERATED, TRACK_STEP, NUM_LINE_POINTS, CENTER_LINE_PLOT, TRACK_POINT_PLOTS, ANNOTATIONS, FIG, MOUSE, T_KEY, H_KEY, X_KEY, D_KEY, ORANGE_CONES, BLUE_CONES, YELLOW_CONES, CENTER_LINE, TRACK_SAVED, X_RANGE, Y_RANGE
 
     ### Tunable track generation parameters ###
     # Number of points on the centerline
-    NUM_LINE_POINTS = 1000
+    NUM_LINE_POINTS = 500
     # Width of the track
-    TRACK_WIDTH = 3.
+    TRACK_WIDTH = 0.2
     # The canvas x- and y-value ranges
-    X_RANGE = [-30., 30.]
-    Y_RANGE = [-30., 30.]
+    X_RANGE = [-10.0, 30.0]
+    Y_RANGE = [-3.0, 9.0]
 
-    FIG = plt.figure('FEB Track generator')
+    FIG = plt.figure("FEB Track generator")
     TRACK_GENERATED = False
     NUM_TRACK_POINTS = 0
     TRACK_STEP = NUM_LINE_POINTS // 100
@@ -27,19 +23,26 @@ def init():
     TRACK_POINT_PLOTS = []
     ANNOTATIONS = []
     MOUSE, T_KEY, H_KEY, X_KEY, D_KEY = int, int, int, int, int
-    ORANGE_CONES, BLUE_CONES, YELLOW_CONES = np.array, np.array, np.array
+    ORANGE_CONES, BLUE_CONES, YELLOW_CONES, CENTER_LINE = (
+        np.array,
+        np.array,
+        np.array,
+        np.array,
+    )
     TRACK_SAVED = False
 
     # This list is used to generate the track in 'list mode'
-    TRACK_POINTS = np.array([
-        [0., 0.],
-        [50., 0.],
-        [50., 60.],
-        [-100., 60.],
-        [-100., -50.],
-        [-50., -50.],
-        [-50., 0.]
-    ])
+    TRACK_POINTS = np.array(
+        [
+            [0.0, 0.0],
+            [50.0, 0.0],
+            [50.0, 60.0],
+            [-100.0, 60.0],
+            [-100.0, -50.0],
+            [-50.0, -50.0],
+            [-50.0, 0.0],
+        ]
+    )
 
     # A more involved example:
 
